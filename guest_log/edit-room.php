@@ -2,20 +2,16 @@
 
 include("config.php");
 
-// kalau tidak ada id di query string
 if( !isset($_GET['id']) ){
     header('Location: index.php');
 }
 
-//ambil id dari query string
 $id = $_GET['id'];
 
-// buat query untuk ambil data dari database
 $sql = "SELECT * FROM rooms WHERE room_number=$id";
 $query = mysqli_query($db, $sql);
 $room = mysqli_fetch_assoc($query);
 
-// jika data yang di-edit tidak ditemukan
 if(mysqli_num_rows($query)<1){
     die("data not found");
 }
@@ -64,25 +60,26 @@ if(mysqli_num_rows($query)<1){
         </p>
         </fieldset>
     </form>
+
+    <br>
+
+    <button onclick="history.go(-1);">Back </button>
+    
     <div id="update">
         <?php
             include("config.php");
-            // cek apakah tombol simpan sudah diklik atau blum?
             if(isset($_POST['save'])){
-                // ambil data dari formulir
                 $id = $_POST['id'];
                 $room_no = $_POST['room_number'];
                 $type = $_POST['room_type'];
                 $stat = $_POST['status'];
-                // buat query update
+
                 $sql = "UPDATE rooms SET room_number='$room_no', room_type='$type', status='$stat' WHERE room_number=$id";
                 $query = mysqli_query($db, $sql);
-                // apakah query update berhasil?
+
                 if($query) {
-                    // kalau berhasil alihkan ke halaman list-siswa.php
                     header('Location: index.php');
                 } else {
-                    // kalau gagal tampilkan pesan
                     die("Failed to save changes");
                 }
             }
