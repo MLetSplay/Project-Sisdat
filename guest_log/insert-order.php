@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Grand Hotel Guest Log</title>
+    <link rel="stylesheet" href="aloguest.css">
 </head>
 
 <body>

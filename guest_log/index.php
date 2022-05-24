@@ -39,6 +39,7 @@
         border-top: none;
         }
     </style>
+    <link rel="stylesheet" href="aloguest.css">
 </head>
 
 <body>
@@ -56,13 +57,11 @@
     </div>
 
     <div id="Rooms" class="tabcontent">
-        <header>
-            <h3>Room List</h3>
-        </header>
+        <h3>Room List</h3>
 
         <br>
 
-        <table border="1">
+        <table border="1" class="table">
             <thead>
                 <tr>
                     <th>Room Number</th>
@@ -119,13 +118,11 @@
     </div>
 
     <div id="Guests" class="tabcontent">
-        <header>
-            <h3>Guest List</h3>
-        </header>
+        <h3>Guest List</h3>
         
         <br>
 
-        <table border="1">
+        <table border="1" class="table">
             <thead>
                 <tr>
                     <th>Guest ID</th>
@@ -185,13 +182,11 @@
     </div>
 
     <div id="Orders" class="tabcontent">
-        <header>
-            <h3>Order List</h3>
-        </header>
+        <h3>Order List</h3>
         
         <br>
 
-        <table border="1">
+        <table border="1" class="table">
             <thead>
                 <tr>
                     <th>Order ID</th>
@@ -233,7 +228,7 @@
 
         <p>Total: <?php echo mysqli_num_rows($query) ?></p>
 
-        <div id="delete_o">
+        <div id="delete_o" class="table">
             <?php if(isset($_GET['o_id'])){
                     $id = $_GET['o_id'];
 
@@ -250,13 +245,11 @@
     </div>
 
     <div id="Services" class="tabcontent">
-        <header>
-            <h3>Service List</h3>
-        </header>
+        <h3>Service List</h3>
         
         <br>
 
-        <table border="1">
+        <table border="1" class="table">
             <thead>
                 <tr>
                     <th>ID</th>

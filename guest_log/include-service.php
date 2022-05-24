@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Grand Hotel Guest Log</title>
+    <link rel="stylesheet" href="aloguest.css">
 </head>
 
 <body>
@@ -55,7 +56,7 @@
 
         <br>
 
-        <button onclick="history.go(-1);">Back </button>
+        <button onclick="location.href='index.php?def=order'">Back </button>
 
         <div id="delete_s">
             <?php if(isset($_GET['d_id'])){

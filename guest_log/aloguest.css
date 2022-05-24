@@ -1,0 +1,47 @@
+th{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+td{
+    font-family: 'Courier New', Courier, monospace;
+}
+header{
+    text-align: center;
+    color: azure;
+}
+body{
+    background-image: url("aesthetic.jpeg"); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+button{
+    background-image: url("goingtogensokyo.jpeg");
+    font-family: 'Courier New', Courier, monospace;
+    color: azure;
+}
+input{
+    background-image: url("goingtogensokyo.jpeg");
+    font-family: 'Courier New', Courier, monospace;
+    color: azure;
+}
+form{
+    background-image: url("coolbackground.jpeg"); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    color: azure;
+}
+select{
+    background-color: azure; 
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(36,52,124);
+}
+
+.table{
+    text-align: center;
+    background-color: rgb(89,98,154,0.8);
+    color: azure;
+}
+.tabcontent{
+    background-color: rgb(36,52,124);
+    color: azure;
+}
