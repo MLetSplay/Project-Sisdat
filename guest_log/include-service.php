@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grand Hotel Guest Log</title>
+    <title>Gensokyo Grand Hotel Guest Log</title>
     <link rel="stylesheet" href="aloguest.css">
 </head>
 
@@ -25,7 +25,7 @@
             <tbody>
 
                 <?php
-                $sql = "SELECT service_id, qty, price FROM includes_services ORDER BY ABS(service_id)";
+                $sql = "SELECT service_id, qty, price FROM includes_services WHERE order_id = $id ORDER BY ABS(service_id)";
                 $query = mysqli_query($db, $sql);
 
                 while($serv = mysqli_fetch_array($query)){

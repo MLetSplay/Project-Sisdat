@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grand Hotel Guest Log</title>
+    <title>Gensokyo Grand Hotel Guest Log</title>
     <style>
         .tab {
         overflow: hidden;
@@ -44,7 +44,7 @@
 
 <body>
     <header>
-        <h1>Grand Hotel</h1>
+        <h1>Gensokyo Grand Hotel</h1>
         <h3>Guest Log Database</h3>
     </header>
 
