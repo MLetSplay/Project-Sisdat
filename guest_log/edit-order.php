@@ -39,15 +39,15 @@ if(mysqli_num_rows($query)<1){
             <input type="text" name="order_id" value="<?php echo $order['order_id'] ?>" />
         </p>
         <p>
-            <label for="guest_id">Name: </label>
-            <select name="guest_id" required>
+            <label for="guest_name">Name: </label>
+            <select name="guest_name" required>
                 <option value=""></option>
                 <?php
                     $sql = "SELECT * FROM guests ORDER BY ABS(guest_id)";
                     $g_query = mysqli_query($db, $sql);
 
-                    while($g_id = mysqli_fetch_array($g_query)){
-                        echo "<option>".$g_id['guest_id']."</option>";
+                    while($g_name = mysqli_fetch_array($g_query)){
+                        echo "<option>".$g_name['guest_name']."</option>";
                     }
                 ?>
             </select>
@@ -93,7 +93,13 @@ if(mysqli_num_rows($query)<1){
             }
             if(isset($_POST['save'])){
                 $o_id = $_POST['order_id'];
-                $g_id = $_POST['guest_id'];
+                
+                $g_name = $_POST['guest_name'];
+                $sql = "SELECT guest_id FROM guests WHERE guest_name = '$g_name'";
+                $g_query = mysqli_query($db, $sql);
+                $g_name = mysqli_fetch_array($g_query);
+                
+                $g_id = $g_name['guest_id'];
                 $room_no = $_POST['room_number'];
                 $date = $_POST['order_date'];
                 $time = $_POST['order_time'];

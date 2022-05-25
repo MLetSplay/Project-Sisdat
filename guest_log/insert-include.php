@@ -44,13 +44,15 @@
     </form>
     
     <br>
-
-    <button onclick="location.href='index.php?def=order';">Back </button>
+    
+    <?php
+        include("config.php");
+        $id = $_GET['id'];
+        echo "<button onclick=\"location.href='include-service.php?is_id=".$id."';\">Back </button>"
+    ?>
 
     <div id="process">
         <?php
-            include("config.php");
-            $id = $_GET['id'];
             if(isset($_POST['insert'])){
                 $s_id = $_POST['service_id'];
                 $qty = $_POST['qty'];

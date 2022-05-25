@@ -83,7 +83,7 @@
                         echo "<td>".$room['status']."</td>";
 
                         echo "<td>";
-                        echo "<button onClick=\"location.href='edit-room.php?id=".$room['room_number']."';\">Edit</button> | ";
+                        echo "<button onClick=\"location.href='edit-room.php?id=".$room['room_number']."';\">Edit</button> ";
                         echo "<button onClick=\"location.href='index.php?r_id=".$room['room_number']."';\">Delete</a>";
                         echo "</td>";
 
@@ -148,7 +148,7 @@
                     echo "<td>".$guest['guest_checkout']."</td>";
 
                     echo "<td>";
-                    echo "<button onClick=\"location.href='edit-guest.php?id=".$guest['guest_id']."';\">Edit</button> | ";
+                    echo "<button onClick=\"location.href='edit-guest.php?id=".$guest['guest_id']."';\">Edit</button> ";
                     echo "<button onClick=\"location.href='index.php?def=guest&g_id=".$guest['guest_id']."';\">Delete</button>";
                     echo "</td>";
 
@@ -199,7 +199,7 @@
             <tbody>
 
                 <?php
-                $sql = "SELECT * FROM orders ORDER BY order_date DESC";
+                $sql = "SELECT * FROM orders ORDER BY order_date DESC, order_time DESC";
                 $query = mysqli_query($db, $sql);
 
                 while($order = mysqli_fetch_array($query)){
@@ -212,7 +212,7 @@
                     echo "<td>".$order['order_time']."</td>";
 
                     echo "<td>";
-                    echo "<button onClick=\"location.href='edit-order.php?id=".$order['order_id']."'\";>Edit</button> | ";
+                    echo "<button onClick=\"location.href='edit-order.php?id=".$order['order_id']."'\";>Edit</button> ";
                     echo "<button onClick=\"location.href='index.php?def=order&o_id=".$order['order_id']."'\";>Delete</button>";
                     echo "</td>";
 
@@ -271,7 +271,7 @@
                     echo "<td>".$serv['unit_price']."</td>";
 
                     echo "<td>";
-                    echo "<button onClick=\"location.href='edit-service.php?id=".$serv['service_id']."';\">Edit</button> | ";
+                    echo "<button onClick=\"location.href='edit-service.php?id=".$serv['service_id']."';\">Edit</button> ";
                     echo "<button onClick=\"location.href='index.php?def=service&s_id=".$serv['service_id']."';\">Delete</button>";
                     echo "</td>";
 

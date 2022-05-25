@@ -14,10 +14,11 @@
         <h3>Order <?php echo $id?></h3>
     </header>
     <div id="include-service">
-        <table border="1">
+        <table border="1" class="table">
             <thead>
                 <tr>
                     <th>Service ID</th>
+                    <th>Service Name</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
@@ -25,13 +26,14 @@
             <tbody>
 
                 <?php
-                $sql = "SELECT service_id, qty, price FROM includes_services WHERE order_id = $id ORDER BY ABS(service_id)";
+                $sql = "SELECT iv.service_id, sv.service_name, qty, price FROM includes_services iv JOIN services sv ON iv.service_id=sv.service_id WHERE order_id = $id ORDER BY ABS(iv.service_id);";
                 $query = mysqli_query($db, $sql);
 
                 while($serv = mysqli_fetch_array($query)){
                     echo "<tr>";
 
                     echo "<td>".$serv['service_id']."</td>";
+                    echo "<td>".$serv['service_name']."</td>";
                     echo "<td>".$serv['qty']."</td>";
                     echo "<td>".$serv['price']."</td>";
 
@@ -42,7 +44,7 @@
                     echo "</tr>";
                 }
                 ?>
-                <td colspan="3">
+                <td colspan="4">
                     <?php
                     echo "<button onClick=\"location.href='insert-include.php?id=".$id."';\">Add Orders</button>"
                     ?>
@@ -72,4 +74,15 @@
                 }
             ?>
         </div>  
+
+        <?php if(isset($_GET['status'])): ?>
+            <p>
+                <?php
+                    if($_GET['status'] != 'success'){
+                        echo "Insert attempt failed";
+                    }
+                ?>
+            </p>
+        <?php endif; ?>
     </div>  
+</body>

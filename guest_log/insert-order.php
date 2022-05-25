@@ -20,15 +20,15 @@
             </p>
             <p>
             <p>
-                <label for="guest_id">Name: </label>
-                <select name="guest_id" required>
+                <label for="guest_name">Name: </label>
+                <select name="guest_name" required>
                     <option value=""></option>
                     <?php
                         $sql = "SELECT * FROM guests ORDER BY ABS(guest_id)";
                         $g_query = mysqli_query($db, $sql);
     
                         while($g_id = mysqli_fetch_array($g_query)){
-                            echo "<option>".$g_id['guest_id']."</option>";
+                            echo "<option>".$g_id['guest_name']."</option>";
                         }
                     ?>
                 </select>
@@ -63,7 +63,7 @@
 
     <br>
 
-    <button onclick="history.go(-1);">Back </button>
+    <button onclick="location.href='index.php?def=order';">Back </button>
 
     <div id="process">
         <?php
@@ -74,7 +74,13 @@
 
             if(isset($_POST['insert'])){
                 $o_id = $_POST['order_id'];
-                $g_id = $_POST['guest_id'];
+                
+                $g_name = $_POST['guest_name'];
+                $sql = "SELECT guest_id FROM guests WHERE guest_name = '$g_name'";
+                $g_query = mysqli_query($db, $sql);
+                $g_name = mysqli_fetch_array($g_query);
+                
+                $g_id = $g_name['guest_id'];
                 $room_no = $_POST['room_number'];
                 $date = $_POST['order_date'];
                 $time = $_POST['order_time'];

@@ -53,7 +53,7 @@
 
     <br>
 
-    <button onclick="history.go(-1);">Back </button>
+    <button onclick="location.href='index.php?def=service';">Back </button>
 
     <div id="process">
         <?php
